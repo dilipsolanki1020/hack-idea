@@ -4,11 +4,19 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  employeeId:Number[] = [1];
-  constructor() { }
+  //private employeeId:Number[] = [1];
+  constructor() { 
+    localStorage.setItem("employeeIds",JSON.stringify([1]))
+  }
+
+  private getStoredEmployeeIds(): number[] {
+    const storedIdsString = localStorage.getItem("employeeIds");
+    return storedIdsString ? JSON.parse(storedIdsString) : [];
+  }
 
   login(empId: any){
     //console.log(empId,this.employeeId.includes(empId))
-    return this.employeeId.includes(empId)
+    const storedEmployeeIds = this.getStoredEmployeeIds();
+    return storedEmployeeIds.includes(empId)
   }
 }
