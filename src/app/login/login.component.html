@@ -3,7 +3,8 @@
       <div id="login" >
           <h1 class="mb-4">Login</h1>
           <label for="employeIdinput" class="form-label">Enter Employee Id:</label>
-          <input type="text" id="employeIdinput" class="form-control mb-3">
+          <input type="text" id="employeIdinput" class="form-control mb-3" [(ngModel)]="loginEmployeeId">
+          <div class="text-danger" *ngIf="!loginSuccessfull">Error!! Invalid Employee Id</div>
           <button id="loginBtn" class="btn btn-primary" (click)="login()">Login</button>
       </div>
 </div>

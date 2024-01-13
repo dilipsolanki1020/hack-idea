@@ -8,14 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+loginEmployeeId!: Number;
+loginSuccessfull:boolean = true;
   constructor(private loginService: LoginService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    this.loginService.login('1');
-    console.log(" login success")
-    this.router.navigate(['/dashboard'])
+    const employeeIdNumber = Number(this.loginEmployeeId);
+    if(this.loginService.login(employeeIdNumber)){
+      window.alert(" login success")
+      this.loginSuccessfull = true
+      this.router.navigate(['/dashboard'])
+    }
+    else {
+      console.log("failed");
+      this.loginSuccessfull = false;
+    }
+    
   }
 }
