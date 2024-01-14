@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  //private employeeId:Number[] = [1];
+  private employeeId:Number[] = [];
   constructor() { 
-    localStorage.setItem("employeeIds",JSON.stringify([1,2]))
+    localStorage.setItem("employeeIds",JSON.stringify(this.employeeId))
   }
 
   private getStoredEmployeeIds(): number[] {
@@ -16,7 +16,12 @@ export class LoginService {
 
   login(empId: any){
     //console.log(empId,this.employeeId.includes(empId))
-    const storedEmployeeIds = this.getStoredEmployeeIds();
-    return storedEmployeeIds.includes(empId)
+    const storedEmployeeIds = localStorage.getItem("employeeIds");
+    return storedEmployeeIds?.includes(empId)
+  }
+
+  register(empId:any){
+    this.employeeId.push(empId)
+    localStorage.setItem("employeeIds",JSON.stringify(this.employeeId))
   }
 }

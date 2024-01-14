@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+registerEmployeeId: any;
 loginEmployeeId!: Number;
 loginSuccessfull:boolean = true;
   constructor(private loginService: LoginService, private router:Router) { }
@@ -18,7 +19,7 @@ loginSuccessfull:boolean = true;
   login(){
     const employeeIdNumber = Number(this.loginEmployeeId);
     if(this.loginService.login(employeeIdNumber)){
-      window.alert(" login success")
+      // window.alert(" login success")
       this.loginSuccessfull = true
       this.router.navigate(['/dashboard'])
     }
@@ -26,6 +27,11 @@ loginSuccessfull:boolean = true;
       console.log("failed");
       this.loginSuccessfull = false;
     }
-    
   }
+
+  register() {
+    this.loginService.register(Number(this.registerEmployeeId))
+    window.alert("Employee ID added!!!!")
+    this.registerEmployeeId = null;
+    }
 }
