@@ -1,8 +1,14 @@
 <div class="container mt-5">
   <div class="d-flex justify-content-end mb-3">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      Add New Challenge
-    </button>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add New Challenge
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="sortChallengesByVotes()">
+        Sort by Votes
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="sortChallengesByDate()">
+        Sort by Date
+      </button>
   </div>
 
   <div class="row">
@@ -13,8 +19,8 @@
           <p class="card-text">{{ challenge.description }}</p>
           <p class="card-text">Tags: {{ challenge.tags }}</p>
           <p class="card-text">Votes: {{ challenge.votes }}</p>
-          <p class="card-text">Creation Date: {{ challenge.createdAt }}</p>
-          <button class="btn btn-success" (click)="upvote()">Upvote</button>
+          <p class="card-text">Creation Date: {{ challenge.createdAt | date: 'short' }}</p>
+          <button class="btn btn-success" (click)="challengeService.upvoteChallenge(challenge)">Upvote</button>
         </div>
       </div>
     </div>

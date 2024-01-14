@@ -7,13 +7,22 @@ import { ChallengeService } from './challenge.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-upvote() {
+ upvote() {
 throw new Error('Method not implemented.');
 }
 
 
-constructor(private challengeService: ChallengeService,) {}
+constructor(public challengeService: ChallengeService,) {}
 get challenges(): any[] {
   return this.challengeService.getAllChallenges();
 }
+
+sortChallengesByVotes(): void {
+  this.challengeService.sortChallengesByVotes();
+}
+
+sortChallengesByDate(): void {
+  this.challengeService.sortChallengesByDate();
+}
+
 }

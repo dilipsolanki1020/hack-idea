@@ -4,19 +4,44 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ChallengeService {
-  private challenges: any[];
+  private challenges: Challenge[];
   constructor() {
     const storedChallenges = localStorage.getItem('challenges');
     this.challenges = storedChallenges ? JSON.parse(storedChallenges) : [];
    }
 
-addChallenge(challenge:any){
+addChallenge(challenge:Challenge){
 console.log(challenge)
 this.challenges.push(challenge);
-localStorage.setItem('challenges',JSON.stringify(this.challenges))
+this.updateLocalStorage()
   }
 
-  getAllChallenges(): any[] {
+  getAllChallenges(): Challenge[] {
     return this.challenges;
   }
+
+  upvoteChallenge(challenge: Challenge): void {
+    challenge.votes++;
+    this.updateLocalStorage();
+  }
+
+  updateLocalStorage(): void {
+    localStorage.setItem('challenges', JSON.stringify(this.challenges));
+  }
+
+  sortChallengesByVotes(): void {
+
+  }
+  
+  sortChallengesByDate(): void {
+
+  }
+  
+}
+export interface Challenge {
+  title: string;
+  description: string;
+  tags: string;
+  votes: number;
+  createdAt: string; // or use Date type if applicable
 }
