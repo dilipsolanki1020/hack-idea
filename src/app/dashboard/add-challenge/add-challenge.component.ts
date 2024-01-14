@@ -15,7 +15,7 @@ addChallenge() {
     description: this.newChallenge.description,
     tags: this.newChallenge.tags,
     votes: 0,
-    createdAt: new Date().toDateString() + new Date().toLocaleTimeString(),
+    createdAt: new Date().toDateString() + " "+ new Date().toLocaleTimeString(),
   });
 }
 

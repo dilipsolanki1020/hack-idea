@@ -1,18 +1,36 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <app-add-challenge></app-add-challenge>
+<div class="container mt-5">
+  <div class="d-flex justify-content-end mb-3">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Add New Challenge
+    </button>
+  </div>
+
+  <div class="row">
+    <div *ngFor="let challenge of challenges" class="col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">{{ challenge.title }}</h4>
+          <p class="card-text">{{ challenge.description }}</p>
+          <p class="card-text">Tags: {{ challenge.tags }}</p>
+          <p class="card-text">Votes: {{ challenge.votes }}</p>
+          <p class="card-text">Creation Date: {{ challenge.createdAt }}</p>
+          <button class="btn btn-success" (click)="upvote()">Upvote</button>
         </div>
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-challenge></app-add-challenge>
+      </div>
+    </div>
+  </div>
+</div>
