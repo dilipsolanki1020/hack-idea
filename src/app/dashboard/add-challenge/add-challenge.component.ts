@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ChallengeService } from '../challenge.service';
 
 @Component({
   selector: 'app-add-challenge',
@@ -6,10 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-challenge.component.css']
 })
 export class AddChallengeComponent {
-  newChallenge: any;
-  
+  newChallenge: any ={ title: '', description: '', tags: '' };
+  constructor(private challengeService: ChallengeService) {}
 addChallenge() {
-console.log("Add challenge")
+  this.challengeService.addChallenge({
+    title: this.newChallenge.title,
+    description: this.newChallenge.description,
+    tags: this.newChallenge.tags,
+    votes: 0,
+    createdAt: new Date().toDateString() + new Date().toLocaleTimeString(),
+  });
 }
 
 }
