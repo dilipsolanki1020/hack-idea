@@ -1,11 +1,21 @@
 <div class="container mt-5">
-  <div id="loginPage" class="col-md-6 offset-md-3 card p-4">
-      <div id="login" >
-          <h1 class="mb-4">Login</h1>
-          <label for="employeIdinput" class="form-label">Enter Employee Id:</label>
-          <input type="text" id="employeIdinput" class="form-control mb-3" [(ngModel)]="loginEmployeeId">
-          <div class="text-danger" *ngIf="!loginSuccessfull">Error!! Invalid Employee Id</div>
-          <button id="loginBtn" class="btn btn-primary" (click)="login()">Login</button>
-      </div>
-</div>
+    <div class="row">
+        <div id="loginPage" class="col-md-6 card p-4">
+            <div id="login" >
+                <h1 class="mb-4">Login</h1>
+                <label for="employeIdinput" class="form-label">Enter Employee Id:</label>
+                <input type="text" id="employeIdinput" class="form-control mb-3" [(ngModel)]="loginEmployeeId">
+                <div class="text-danger" *ngIf="!loginSuccessfull">Error!! Invalid Employee Id</div>
+                <button id="loginBtn" class="btn btn-primary" (click)="login()">Login</button>
+            </div>
+        </div>
+        <div id="registrationPage" class="col-md-6 card p-4">
+            <div id="registration">
+                <h1 class="mb-4">Register</h1>
+                <label for="employeIdinput" class="form-label">Enter Employee Id:</label>
+                <input type="text" id="employeIdinput" class="form-control mb-3" [(ngModel)]="loginEmployeeId">
+                <button id="registerBtn" class="btn btn-success">Register</button>
+            </div>
+        </div>
+    </div>
 </div>
