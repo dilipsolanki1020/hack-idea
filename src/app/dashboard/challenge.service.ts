@@ -30,11 +30,13 @@ this.updateLocalStorage()
   }
 
   sortChallengesByVotes(): void {
-
+    this.challenges.sort((a, b) => b.votes - a.votes);
+    this.updateLocalStorage();
   }
   
   sortChallengesByDate(): void {
-
+    this.challenges.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    this.updateLocalStorage();
   }
   
 }
