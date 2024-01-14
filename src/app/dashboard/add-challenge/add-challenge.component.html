@@ -1,0 +1,15 @@
+<form (submit)="addChallenge()" class="mt-4">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title:</label>
+        <input type="text" id="title" [(ngModel)]="newChallenge.title" required name="title" class="form-control"/>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" [(ngModel)]="newChallenge.description" required name="description" class="form-control"></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="tags" class="form-label">Tags:</label>
+        <input type="text" id="tags" [(ngModel)]="newChallenge.tags" name="tags" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Challenge</button>
+</form>

@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class LoginService {
   //private employeeId:Number[] = [1];
   constructor() { 
-    localStorage.setItem("employeeIds",JSON.stringify([1]))
+    localStorage.setItem("employeeIds",JSON.stringify([1,2]))
   }
 
   private getStoredEmployeeIds(): number[] {
