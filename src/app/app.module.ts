@@ -7,13 +7,15 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddChallengeComponent } from './dashboard/add-challenge/add-challenge.component';
+import { TagsComponent } from './dashboard/add-challenge/tags/tags.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    AddChallengeComponent
+    AddChallengeComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

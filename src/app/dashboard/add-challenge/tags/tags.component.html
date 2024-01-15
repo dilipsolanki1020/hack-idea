@@ -1,0 +1,9 @@
+<div >
+    <div >
+      <span  *ngFor="let tag of tags" (click)="removeTag(tag)">{{ tag }} <span>&times;</span></span>
+    </div>
+    <input type="text" [(ngModel)]="tagInput" (keydown.enter)="addTag()" (input)="filterTags()">
+  <div  *ngIf="tagInput && filteredSuggestions.length > 0">
+    <div *ngFor="let suggestion of filteredSuggestions" (click)="selectSuggestion(suggestion)">{{ suggestion }}</div>
+  </div>
+  </div>

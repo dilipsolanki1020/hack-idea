@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AddChallengeComponent } from './add-challenge/add-challenge.component';
 
 import { DashboardComponent } from './dashboard.component';
+import { FormsModule } from '@angular/forms';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +10,8 @@ describe('DashboardComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent]
+      declarations: [DashboardComponent, AddChallengeComponent],
+      imports: [FormsModule],
     });
     fixture = TestBed.createComponent(DashboardComponent);
     component = fixture.componentInstance;

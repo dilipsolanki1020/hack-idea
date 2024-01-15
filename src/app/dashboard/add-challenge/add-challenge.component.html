@@ -9,7 +9,8 @@
     </div>
     <div class="mb-3">
         <label for="tags" class="form-label">Tags:</label>
-        <input type="text" id="tags" [(ngModel)]="newChallenge.tags" name="tags" class="form-control" />
+        <app-tags [allTags]="allTags" (tagsChange)="updateTags($event)" [(ngModel)]="newChallenge.tags" name="tags" class="form-control"></app-tags>
+        <!-- <input type="text" id="tags" [(ngModel)]="newChallenge.tags" name="tags" class="form-control" /> -->
     </div>
     <button type="submit" class="btn btn-primary">Add Challenge</button>
 </form>

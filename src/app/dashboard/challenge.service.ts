@@ -43,7 +43,7 @@ this.updateLocalStorage()
 export interface Challenge {
   title: string;
   description: string;
-  tags: string;
+  tags: string[];
   votes: number;
-  createdAt: string; // or use Date type if applicable
+  createdAt: string; 
 }
