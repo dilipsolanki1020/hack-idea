@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoginService {
-  private employeeId:Number[] = [];
+  private employeeId:Number[] = [1234];
   constructor() { 
     localStorage.setItem("employeeIds",JSON.stringify(this.employeeId))
   }
